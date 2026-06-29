@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedal Power Training Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    /* ── Brand Tokens ── */
+    :root {
+      --black:      #0A0405;
+      --surface:    #111012;
+      --card:       #1C1C1E;
+      --border:     #222022;
+      --gray:       #6B7A80;
+      --gray-dim:   #3A3A3C;
+      --white:      #FFFFFF;
+      --green:      #26EA88;
+      --pink:       #F06EB0;
+      --max:        1160px;
+      --pad:        48px;
+    }
+
+    /* ── Base ── */
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+    }
+
+    /* ── Type Helpers ── */
+    .label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .h1 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: clamp(56px, 7vw, 88px);
+      line-height: 0.94;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      color: var(--white);
+    }
+
+    .h2 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 4vw, 48px);
+      line-height: 1.0;
+      text-transform: uppercase;
+      letter-spacing: 0.01em;
+      color: var(--white);
+    }
+
+    .h3 {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 1.05;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+
+    .body-lg { font-size: 17px; color: var(--gray); line-height: 1.7; }
+    .body    { font-size: 15px; color: var(--gray); line-height: 1.7; }
+    .body-sm { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: 3px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--green); color: var(--black); }
+    .btn-ghost   { background: transparent; color: var(--white); border: 1px solid var(--border); }
+
+    /* ── Photo Placeholders ── */
+    .photo {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--gray-dim);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .photo svg { opacity: 0.35; }
+    .photo span.hint { font-size: 10px; opacity: 0.6; letter-spacing: 0.06em; }
+
+    /* ── Nav ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      border-bottom: 1px solid var(--border);
+      height: 64px;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 var(--pad);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .nav-wordmark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.13em;
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--gray);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .nav-links .nav-cta {
+      background: var(--green);
+      color: var(--black);
+      padding: 7px 16px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .nav-links .nav-cta:hover { color: var(--black); opacity: 0.88; }
+
+    /* ── Hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 55fr 45fr;
+      min-height: calc(100vh - 64px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px var(--pad) 80px calc((100vw - var(--max)) / 2 + var(--pad));
+      border-right: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 24px;
+    }
+    .hero-eyebrow .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+
+    .hero-text .h1 { margin-bottom: 28px; }
+
+    .hero-text .body-lg { max-width: 480px; margin-bottom: 40px; }
+
+    .hero-ctas { display: flex; gap: 12px; }
+
+    .hero-photo {
+      min-height: 400px;
+      position: relative;
+    }
+
+    /* ── Services ── */
+    .services {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .services .h2 { margin-bottom: 40px; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--black);
+      padding: 32px;
+      transition: background 0.15s;
+    }
+    .service-card:hover { background: var(--surface); }
+
+    .service-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 22px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--white);
+      margin-bottom: 10px;
+      transition: color 0.15s;
+    }
+    .service-card:hover .service-title { color: var(--green); }
+
+    .service-arrow {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--green);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── About ── */
+    .about {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .about-photo { aspect-ratio: 3 / 4; }
+
+    .about-content .h2 { margin-bottom: 20px; }
+
+    .about-content .body { margin-bottom: 14px; }
+
+    .credentials { margin-top: 24px; }
+
+    .credential {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .cred-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+
+    /* ── Vermont ── */
+    .vermont {
+      background: var(--surface);
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .vermont-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .vermont-photo { aspect-ratio: 4 / 3; }
+
+    .vermont-content .pin {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 18px;
+    }
+    .pin-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); }
+
+    .vermont-content .h2 { margin-bottom: 18px; }
+    .vermont-content .body { margin-bottom: 14px; }
+
+    /* ── Testimonial ── */
+    .testimonial {
+      padding: 80px var(--pad);
+      border-bottom: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .quote-mark {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 72px;
+      color: var(--green);
+      line-height: 0.7;
+      margin-bottom: 16px;
+    }
+
+    .quote-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-weight: 600;
+      font-size: clamp(22px, 3vw, 30px);
+      line-height: 1.3;
+      color: var(--white);
+      max-width: 680px;
+      margin: 0 auto 20px;
+    }
+
+    .quote-attr {
+      font-size: 12px;
+      color: var(--gray);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Team ── */
+    .team-strip {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0;
+    }
+
+    .team-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .team-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 6px;
+    }
+
+    .team-inner .h3 { margin-bottom: 4px; }
+
+    .team-inner .body-sm { color: var(--gray); }
+
+    .team-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-shrink: 0;
+    }
+
+    .team-avatars { display: flex; }
+
+    .team-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 2px solid var(--surface);
+      margin-left: -10px;
+    }
+    .team-avatars .team-avatar:first-child { margin-left: 0; }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 36px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-wordmark {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 8.5px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 1.35;
+    }
+
+    .footer-nav {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-nav a {
+      font-size: 13px;
+      color: var(--gray);
+      transition: color 0.15s;
+    }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-nav .airbnb { color: var(--gray-dim); }
+
+    .footer-meta {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+    }
+    .footer-socials { display: flex; gap: 16px; }
+    .footer-socials a { font-size: 12px; color: var(--gray); transition: color 0.15s; }
+    .footer-socials a:hover { color: var(--white); }
+    .footer-copy { font-size: 11px; color: var(--gray-dim); }
+
+    /* ── Logo SVG Mark ── */
+    .logo-mark { flex-shrink: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <svg class="logo-mark" width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="5" fill="#0A0405"/>
+          <rect x="1" y="1" width="30" height="30" rx="4.5" stroke="#1C1C1E" stroke-width="1"/>
+          <path d="M9 7h7.5c3.5 0 5.8 2.3 5.8 5.8s-2.3 5.8-5.8 5.8H13v7H9V7zm4 8.5h3.2c1.6 0 2.8-1.1 2.8-2.7s-1.2-2.7-2.8-2.7H13v5.4z" fill="white"/>
+          <path d="M14 13.5l-2.8 6.5h3.5l-2.2 6 8-9.5H19l2-3z" fill="#26EA88"/>
+        </svg>
+        <span class="nav-wordmark">Pedal Power<br>Training Solutions</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#">Coaching</a></li>
+        <li><a href="#">Bike Fit</a></li>
+        <li><a href="#">Physical Therapy</a></li>
+        <li><a href="#">Lessons &amp; Clinics</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        Boston &nbsp;&middot;&nbsp; East Burke VT
+      </div>
+      <h1 class="h1">Training<br>solutions,<br>for everybody</h1>
+      <p class="body-lg">Sara Bresnick is a former professional cyclist, USA Cycling certified coach and licensed physical therapist. She works with athletes at every level - from competitive racers to riders who just want to ride better.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn btn-primary">Work with Sara</a>
+        <a href="#" class="btn btn-ghost">Our services</a>
+      </div>
+    </div>
+    <div class="hero-photo photo">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <rect x="3" y="5" width="18" height="14" rx="2"/>
+        <circle cx="12" cy="12" r="3.5"/>
+        <path d="M3 9h1.5M19.5 9H21"/>
+      </svg>
+      <span>Hero photo</span>
+      <span class="hint">Action cycling or Vermont landscape</span>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services">
+    <div class="wrap">
+      <p class="label">What we do</p>
+      <h2 class="h2">Services</h2>
+      <div class="services-grid">
+        <a href="#" class="service-card">
+          <p class="service-title">Coaching</p>
+          <p class="body-sm">Custom training plans built around your goals, schedule and physiology. Power, HR and RPE analysis. No tiered packages - every athlete gets full service.</p>
+          <span class="service-arrow">Learn more &rarr;</span>
+        </a>
+        <a href="#" class="service-card">
+          <p class="service-title">Bike Fit</p>
+          <p class="body-sm">PT-informed fitting that evaluates your body alongside your bike. Custom orthotics for cycling, running and more available as an extension of the fitting process.</p>
+          <span class="service-arrow">Learn more &rarr;</span>
+        </a>
+        <a href="#" class="service-card">
+          <p class="service-title">Physical Therapy</p>
+          <p class="body-sm">Sports rehabilitation with 20+ years of experience. A focus on getting athletes back to doing what they love, not just recovering.</p>
+          <span class="service-arrow">Learn more &rarr;</span>
+        </a>
+        <a href="#" class="service-card">
+          <p class="service-title">Lessons &amp; Clinics</p>
+          <p class="body-sm">Private lessons and ride-alongs in Boston and East Burke VT. Group clinics available. Custom training camps and tours in the Northeast Kingdom by request.</p>
+          <span class="service-arrow">Learn more &rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ── -->
+  <section class="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-photo photo">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <span>Photo: Sara</span>
+          <span class="hint">Coaching or riding</span>
+        </div>
+        <div class="about-content">
+          <p class="label">About Sara</p>
+          <h2 class="h2">One coach -<br>three disciplines</h2>
+          <p class="body">Sara Bresnick brings a combination of credentials that's genuinely hard to find in one person. She started racing professionally in 2002 and competed at the national and international level on the road, in cyclocross and in the mountains.</p>
+          <p class="body">What sets her apart isn't just the racing background - it's what she built on top of it.</p>
+          <div class="credentials">
+            <div class="credential">
+              <span class="cred-dot"></span>
+              <span class="body-sm">USA Cycling Certified Coach and Level 1 Race Director / Promoter</span>
+            </div>
+            <div class="credential">
+              <span class="cred-dot"></span>
+              <span class="body-sm">Masters degree in Physical Therapy, licensed PT</span>
+            </div>
+            <div class="credential">
+              <span class="cred-dot"></span>
+              <span class="body-sm">Advanced certifications in biomechanics, bicycle fitting and orthotics</span>
+            </div>
+            <div class="credential">
+              <span class="cred-dot"></span>
+              <span class="body-sm">20+ years working with athletes from recreational riders to professionals</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-ghost" style="margin-top: 28px;">Read Sara's story</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VERMONT ── -->
+  <section class="vermont">
+    <div class="wrap">
+      <div class="vermont-grid">
+        <div class="vermont-content">
+          <div class="pin">
+            <span class="pin-dot"></span>
+            East Burke, Vermont
+          </div>
+          <h2 class="h2">Ride one of the best destinations in the world</h2>
+          <p class="body">Kingdom Trails in East Burke is a world-class mountain bike network. The surrounding Northeast Kingdom offers some of the finest gravel riding anywhere. This is why Sara is here.</p>
+          <p class="body">Interested in a custom training camp or group cycling trip to Vermont? Sara can put something together around your goals, your group and what the region does best.</p>
+          <a href="#" class="btn btn-primary" style="margin-top: 28px;">Plan a trip</a>
+        </div>
+        <div class="vermont-photo photo">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path d="M3 17l4-8 4 5 3-3 4 6H3z"/>
+            <circle cx="17" cy="7" r="2"/>
+          </svg>
+          <span>Photo: Kingdom Trails</span>
+          <span class="hint">MTB or gravel riding</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIAL ── -->
+  <section class="testimonial">
+    <div class="quote-mark">&ldquo;</div>
+    <p class="quote-text">Simply put, Sara is the best combination of bicycle fitter and physical therapist that I've ever come across</p>
+    <p class="quote-attr">Chris G. &nbsp;&middot;&nbsp; PPTS client</p>
+  </section>
+
+  <!-- ── TEAM ── -->
+  <div class="team-strip">
+    <div class="wrap" style="width: 100%;">
+      <div class="team-inner">
+        <div class="team-left">
+          <p class="team-tag">Est. 2011 &nbsp;&middot;&nbsp; Greater New England</p>
+          <h3 class="h3">Pedal Power Team</h3>
+          <p class="body-sm">Road &middot; Gravel &middot; Cyclocross &middot; MTB - Interested in racing with us?</p>
+        </div>
+        <div class="team-right">
+          <div class="team-avatars">
+            <div class="team-avatar photo"></div>
+            <div class="team-avatar photo"></div>
+            <div class="team-avatar photo"></div>
+          </div>
+          <a href="#" class="btn btn-ghost">Meet the team</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <a href="#" class="footer-logo">
+          <svg class="logo-mark" width="28" height="28" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="5" fill="#0A0405"/>
+            <rect x="1" y="1" width="30" height="30" rx="4.5" stroke="#1C1C1E" stroke-width="1"/>
+            <path d="M9 7h7.5c3.5 0 5.8 2.3 5.8 5.8s-2.3 5.8-5.8 5.8H13v7H9V7zm4 8.5h3.2c1.6 0 2.8-1.1 2.8-2.7s-1.2-2.7-2.8-2.7H13v5.4z" fill="white"/>
+            <path d="M14 13.5l-2.8 6.5h3.5l-2.2 6 8-9.5H19l2-3z" fill="#26EA88"/>
+          </svg>
+          <span class="footer-wordmark">Pedal Power<br>Training Solutions</span>
+        </a>
+        <nav class="footer-nav">
+          <a href="#">Coaching</a>
+          <a href="#">Bike Fit</a>
+          <a href="#">Physical Therapy</a>
+          <a href="#">Lessons &amp; Clinics</a>
+          <a href="#">Team</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="https://www.airbnb.com/rooms/48905072" class="airbnb">Burke View Villa &nearr;</a>
+        </nav>
+        <div class="footer-meta">
+          <div class="footer-socials">
+            <a href="https://www.instagram.com/pedalpowertraining">Instagram</a>
+            <a href="https://www.facebook.com/pedalpowertrainingsolutions">Facebook</a>
+            <a href="https://www.strava.com/clubs/pedalpowertraining">Strava</a>
+          </div>
+          <span class="footer-copy">contact@pedalpowertraining.com &nbsp;&middot;&nbsp; &copy; 2026 Pedal Power Training Solutions</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
