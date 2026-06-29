@@ -428,14 +428,6 @@
       border-top: 1px solid var(--border);
     }
 
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
     .footer-logo {
       display: flex;
       align-items: center;
@@ -465,14 +457,23 @@
     .footer-nav a:hover { color: var(--white); }
     .footer-nav .airbnb { color: var(--gray-dim); }
 
-    .footer-meta {
+    .footer-top {
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 5px;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
     }
-    .footer-socials { display: flex; gap: 16px; }
-    .footer-socials a { font-size: 12px; color: var(--gray); transition: color 0.15s; }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-socials { display: flex; gap: 20px; }
+    .footer-socials a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
     .footer-socials a:hover { color: var(--white); }
     .footer-copy { font-size: 11px; color: var(--gray-dim); }
 
@@ -487,7 +488,6 @@
     <div class="nav-inner">
       <a href="#" class="nav-logo">
         <img src="images/Logo-3.svg" alt="PPTS" width="36" height="36" style="display:block;">
-        <img src="images/Logo-2.svg" alt="Pedal Power Training Solutions" height="22" style="display:block; filter: brightness(0) invert(1);">
       </a>
       <ul class="nav-links">
         <li><a href="#">Coaching</a></li>
@@ -504,6 +504,7 @@
   <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-text">
+      <img src="images/Logo-2.svg" alt="Pedal Power Training Solutions" style="display:block; height:40px; width:auto; filter: brightness(0) invert(1); margin-bottom:40px;">
       <div class="hero-eyebrow">
         <span class="dot"></span>
         Boston &nbsp;&middot;&nbsp; East Burke VT
@@ -571,7 +572,7 @@
         <div class="about-content">
           <p class="label">About Sara</p>
           <h2 class="h2">One coach -<br>three disciplines</h2>
-          <p class="body">Sara Bresnick brings a combination of credentials that's genuinely hard to find in one person. She started racing professionally in 2002 and competed at the national and international level on the road, in cyclocross and in the mountains.</p>
+          <p class="body">Sara Bresnick brings a unique combination of credentials that is rare to find in one person. She started racing professionally in 2002 and competed at the national and international level on the road, cyclocross and mountain bike.</p>
           <p class="body">What sets her apart isn't just the racing background - it's what she built on top of it.</p>
           <div class="credentials">
             <div class="credential">
@@ -654,11 +655,18 @@
   <!-- ── FOOTER ── -->
   <footer class="footer">
     <div class="wrap">
-      <div class="footer-inner">
+      <div class="footer-top">
         <a href="#" class="footer-logo">
           <img src="images/Logo-3.svg" alt="PPTS" width="28" height="28" style="display:block;">
           <span class="footer-wordmark">Pedal Power<br>Training Solutions</span>
         </a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/pedalpowertraining">Instagram</a>
+          <a href="https://www.facebook.com/pedalpowertrainingsolutions">Facebook</a>
+          <a href="https://www.strava.com/clubs/pedalpowertraining">Strava</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
         <nav class="footer-nav">
           <a href="#">Coaching</a>
           <a href="#">Bike Fit</a>
@@ -669,14 +677,7 @@
           <a href="#">Contact</a>
           <a href="https://www.airbnb.com/rooms/48905072" class="airbnb">Burke View Villa &nearr;</a>
         </nav>
-        <div class="footer-meta">
-          <div class="footer-socials">
-            <a href="https://www.instagram.com/pedalpowertraining">Instagram</a>
-            <a href="https://www.facebook.com/pedalpowertrainingsolutions">Facebook</a>
-            <a href="https://www.strava.com/clubs/pedalpowertraining">Strava</a>
-          </div>
-          <span class="footer-copy">contact@pedalpowertraining.com &nbsp;&middot;&nbsp; &copy; 2026 Pedal Power Training Solutions</span>
-        </div>
+        <span class="footer-copy">contact@pedalpowertraining.com &nbsp;&middot;&nbsp; &copy; 2026 Pedal Power Training Solutions</span>
       </div>
     </div>
   </footer>
