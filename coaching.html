@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coaching — Pedal Power Training Solutions</title>
+  <meta name="description" content="Custom cycling and endurance coaching from Sara Bresnick — former pro cyclist, USA Cycling certified coach and licensed physical therapist. Based in Boston, available everywhere.">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black:      #0A0405;
+      --surface:    #111012;
+      --card:       #1C1C1E;
+      --border:     #222022;
+      --gray:       #6B7A80;
+      --gray-dim:   #3A3A3C;
+      --white:      #FFFFFF;
+      --green:      #26EA88;
+      --pink:       #F06EB0;
+      --max:        1160px;
+      --pad:        48px;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+
+    .label {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--green); margin-bottom: 12px;
+    }
+    .h1 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: clamp(56px, 7vw, 88px); line-height: 0.94;
+      text-transform: uppercase; letter-spacing: -0.01em; color: var(--white);
+    }
+    .h2 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: clamp(36px, 4vw, 48px); line-height: 1.0;
+      text-transform: uppercase; letter-spacing: 0.01em; color: var(--white);
+    }
+    .h3 {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 700;
+      font-size: 26px; line-height: 1.05; text-transform: uppercase; color: var(--white);
+    }
+    .body-lg { font-size: 17px; color: var(--gray); line-height: 1.7; }
+    .body    { font-size: 15px; color: var(--gray); line-height: 1.7; }
+    .body-sm { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+
+    .btn {
+      display: inline-block; padding: 13px 26px; border-radius: 3px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600;
+      letter-spacing: 0.02em; cursor: pointer; transition: opacity 0.15s;
+    }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--green); color: var(--black); }
+    .btn-ghost   { background: transparent; color: var(--white); border: 1px solid var(--border); }
+
+    .photo {
+      background: var(--surface); border: 1px solid var(--border);
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 8px; color: var(--gray-dim);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+    .photo svg { opacity: 0.35; }
+    .photo span.hint { font-size: 10px; opacity: 0.6; letter-spacing: 0.06em; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--black); border-bottom: 1px solid var(--border);
+      height: 64px; display: flex; align-items: center;
+    }
+    .nav-inner {
+      max-width: var(--max); margin: 0 auto; padding: 0 var(--pad);
+      width: 100%; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 11px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--gray); font-size: 13px; font-weight: 500; letter-spacing: 0.01em; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a.active { color: var(--white); }
+    .nav-links .nav-cta { background: var(--green); color: var(--black); padding: 7px 16px; border-radius: 3px; font-weight: 600; font-size: 13px; }
+    .nav-links .nav-cta:hover { color: var(--black); opacity: 0.88; }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 72px 0 64px;
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero .label { margin-bottom: 16px; }
+    .page-hero .h1 { margin-bottom: 24px; max-width: 700px; }
+    .page-hero .body-lg { max-width: 560px; }
+
+    /* Section shared */
+    section { border-bottom: 1px solid var(--border); }
+    .section-pad { padding: 72px 0; }
+
+    /* Philosophy */
+    .philosophy-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+    }
+    .philosophy-grid .h2 { margin-bottom: 20px; }
+    .philosophy-grid .body { margin-bottom: 14px; }
+
+    /* What's Included */
+    .included { background: var(--surface); }
+    .included-list {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden; margin-top: 40px;
+    }
+    .included-item {
+      background: var(--surface); padding: 28px 32px;
+    }
+    .included-item .h3 { margin-bottom: 8px; font-size: 18px; }
+
+    /* Who It's For */
+    .for-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border); border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden; margin-top: 40px;
+    }
+    .for-card { background: var(--black); padding: 28px 28px; }
+    .for-card .h3 { font-size: 19px; color: var(--green); margin-bottom: 10px; }
+
+    /* Sports */
+    .sports-row {
+      display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px;
+    }
+    .sport-tag {
+      display: inline-block; padding: 7px 16px; border: 1px solid var(--border);
+      border-radius: 3px; font-size: 13px; font-weight: 500; color: var(--gray);
+      letter-spacing: 0.04em;
+    }
+
+    /* CTA Band */
+    .cta-band {
+      background: var(--surface); text-align: center; padding: 72px var(--pad);
+    }
+    .cta-band .h2 { margin-bottom: 16px; }
+    .cta-band .body { margin-bottom: 32px; }
+
+    /* Footer */
+    .footer { padding: 36px 0; border-top: 1px solid var(--border); }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-wordmark {
+      font-family: 'Montserrat', sans-serif; font-weight: 700;
+      font-size: 8.5px; letter-spacing: 0.12em; color: var(--white);
+      text-transform: uppercase; line-height: 1.35;
+    }
+    .footer-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-nav a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-nav .airbnb { color: var(--gray-dim); }
+    .footer-top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px;
+    }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-socials { display: flex; gap: 20px; }
+    .footer-socials a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-socials a:hover { color: var(--white); }
+    .footer-copy { font-size: 11px; color: var(--gray-dim); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/Logo-3.svg" alt="PPTS" width="36" height="36" style="display:block; filter: brightness(0) invert(1);">
+      </a>
+      <ul class="nav-links">
+        <li><a href="coaching.html" class="active">Coaching</a></li>
+        <li><a href="bike-fit.html">Bike Fit</a></li>
+        <li><a href="physical-therapy.html">Physical Therapy</a></li>
+        <li><a href="lessons-clinics.html">Lessons &amp; Clinics</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="label">Coaching</p>
+      <h1 class="h1">Train smarter.<br>Ride better.</h1>
+      <p class="body-lg">Custom coaching built around your goals, your life and your physiology — from a coach who has raced at the highest level and treats athletes as a licensed physical therapist.</p>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section>
+    <div class="wrap section-pad">
+      <div class="philosophy-grid">
+        <div>
+          <p class="label">Philosophy</p>
+          <h2 class="h2">The whole-athlete<br>approach</h2>
+        </div>
+        <div>
+          <!-- CONTENT PLACEHOLDER: 3–4 paragraphs on Sara's coaching philosophy.
+               Topics: whole-athlete approach, training that fits your life, no tiered packages
+               and why that matters, honest feedback, long-term development over quick fixes. -->
+          <p class="body">[Coaching philosophy — to be written. Sara's take on whole-athlete training, fitting the plan to the athlete's life, and why she doesn't offer tiered packages.]</p>
+          <p class="body" style="margin-top:14px;">[Second paragraph: approach to data — power, HR, RPE — and how she combines those metrics with the athlete's subjective experience and PT background.]</p>
+          <p class="body" style="margin-top:14px;">[Third paragraph: what a long-term coaching relationship looks like and why that matters more than a quick plan.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="included">
+    <div class="wrap section-pad">
+      <p class="label">What you get</p>
+      <h2 class="h2">A full coaching relationship</h2>
+      <div class="included-list">
+        <div class="included-item">
+          <p class="h3">Initial Consultation</p>
+          <!-- CONTENT PLACEHOLDER: what happens in the first call/meeting — goals, history, current fitness, equipment -->
+          <p class="body-sm">[What the initial consultation covers — goals, training history, current fitness, schedule, equipment.]</p>
+        </div>
+        <div class="included-item">
+          <p class="h3">Custom Training Plan</p>
+          <!-- CONTENT PLACEHOLDER: how the plan is structured, periodization approach, how it adapts -->
+          <p class="body-sm">[How Sara structures the plan — periodization, day-by-day schedule, how it adapts as the season progresses.]</p>
+        </div>
+        <div class="included-item">
+          <p class="h3">Data Review</p>
+          <!-- CONTENT PLACEHOLDER: power, HR, RPE analysis, how feedback is delivered and how often -->
+          <p class="body-sm">[Power, HR and RPE review — how often, what Sara looks for, how feedback is delivered.]</p>
+        </div>
+        <div class="included-item">
+          <p class="h3">Ongoing Adjustments</p>
+          <!-- CONTENT PLACEHOLDER: how the plan evolves, what happens when life gets in the way, handling illness/injury -->
+          <p class="body-sm">[How the plan evolves — when life intervenes, illness, injury, race changes. Sara stays responsive.]</p>
+        </div>
+        <div class="included-item">
+          <p class="h3">Race &amp; Event Strategy</p>
+          <!-- CONTENT PLACEHOLDER: pre-race planning, pacing strategy, nutrition discussion -->
+          <p class="body-sm">[Pre-race planning, pacing strategy, nutrition discussion, and post-race debrief.]</p>
+        </div>
+        <div class="included-item">
+          <p class="h3">Direct Access to Sara</p>
+          <!-- CONTENT PLACEHOLDER: how athletes reach Sara — email, phone, app? What response time looks like -->
+          <p class="body-sm">[How athletes communicate with Sara day-to-day — response time, preferred method, what's appropriate to ask.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section>
+    <div class="wrap section-pad">
+      <p class="label">Who it's for</p>
+      <h2 class="h2">Every level welcome</h2>
+      <p class="body" style="max-width:580px; margin-top:16px;">Sara works with athletes at every level. The coaching is serious — the approach is not one-size-fits-all, and neither is the commitment required from you.</p>
+      <div class="for-grid">
+        <div class="for-card">
+          <p class="h3">Competitive Racers</p>
+          <!-- CONTENT PLACEHOLDER: road, gravel, CX, MTB racers looking to podium or upgrade categories -->
+          <p class="body-sm">[For racers looking to podium, upgrade categories or peak for a target event. Road, gravel, CX and MTB.]</p>
+        </div>
+        <div class="for-card">
+          <p class="h3">Club &amp; Recreational Riders</p>
+          <!-- CONTENT PLACEHOLDER: riders who want to get faster, fitter, or just enjoy riding more -->
+          <p class="body-sm">[Riders who want to get stronger, fitter, or simply enjoy riding more. No racing required.]</p>
+        </div>
+        <div class="for-card">
+          <p class="h3">Event &amp; Gran Fondo Athletes</p>
+          <!-- CONTENT PLACEHOLDER: charity riders, fondos, centuries, touring — goal-oriented but not racing -->
+          <p class="body-sm">[Charity rides, centuries, gran fondos and touring. Goal-oriented coaching without the racing context.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPORTS COVERED -->
+  <section style="border-bottom: 1px solid var(--border);">
+    <div class="wrap section-pad">
+      <p class="label">Sports</p>
+      <h2 class="h2">Not just cycling</h2>
+      <p class="body" style="max-width:560px; margin-top:16px;">Sara's background is in cycling, but her coaching and PT expertise translate across endurance sports. Current athletes include cyclists, triathletes and runners.</p>
+      <!-- CONTENT PLACEHOLDER: confirm which sports Sara actively coaches beyond cycling -->
+      <div class="sports-row">
+        <span class="sport-tag">Road Cycling</span>
+        <span class="sport-tag">Gravel</span>
+        <span class="sport-tag">Mountain Bike</span>
+        <span class="sport-tag">Cyclocross</span>
+        <span class="sport-tag">Triathlon</span>
+        <span class="sport-tag">Running</span>
+        <span class="sport-tag">Other Endurance</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2 class="h2">Ready to get started?</h2>
+    <p class="body">Get in touch and Sara will reach back within [X] business days.</p>
+    <a href="contact.html" class="btn btn-primary">Work with Sara</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo">
+          <img src="images/Logo-3.svg" alt="PPTS" width="28" height="28" style="display:block; filter: brightness(0) invert(1);">
+          <span class="footer-wordmark">Pedal Power<br>Training Solutions</span>
+        </a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/pedalpowertraining">Instagram</a>
+          <a href="https://www.facebook.com/pedalpowertrainingsolutions">Facebook</a>
+          <a href="https://www.strava.com/clubs/pedalpowertraining">Strava</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-nav">
+          <a href="coaching.html">Coaching</a>
+          <a href="bike-fit.html">Bike Fit</a>
+          <a href="physical-therapy.html">Physical Therapy</a>
+          <a href="lessons-clinics.html">Lessons &amp; Clinics</a>
+          <a href="team.html">Team</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="https://www.airbnb.com/rooms/48905072" class="airbnb">Burke View AirBnb &nearr;</a>
+        </nav>
+        <span class="footer-copy">contact@pedalpowertraining.com &nbsp;&middot;&nbsp; &copy; 2026 Pedal Power Training Solutions</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

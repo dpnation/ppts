@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedal Power Team — Pedal Power Training Solutions</title>
+  <meta name="description" content="Pedal Power Team — a New England cycling race team founded in 2011. Road, gravel, cyclocross and mountain bike. Based in Boston. Eliel Cycling, Ride Headquarters and Compass sponsors.">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --black: #0A0405; --surface: #111012; --card: #1C1C1E; --border: #222022;
+      --gray: #6B7A80; --gray-dim: #3A3A3C; --white: #FFFFFF;
+      --green: #26EA88; --pink: #F06EB0; --max: 1160px; --pad: 48px;
+    }
+    body { background: var(--black); color: var(--white); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(56px, 7vw, 88px); line-height: 0.94; text-transform: uppercase; letter-spacing: -0.01em; color: var(--white); }
+    .h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4vw, 48px); line-height: 1.0; text-transform: uppercase; letter-spacing: 0.01em; color: var(--white); }
+    .h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: var(--white); }
+    .body-lg { font-size: 17px; color: var(--gray); line-height: 1.7; }
+    .body    { font-size: 15px; color: var(--gray); line-height: 1.7; }
+    .body-sm { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+    .btn { display: inline-block; padding: 13px 26px; border-radius: 3px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--green); color: var(--black); }
+    .btn-ghost   { background: transparent; color: var(--white); border: 1px solid var(--border); }
+    .photo { background: var(--surface); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--gray-dim); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+    .photo svg { opacity: 0.35; }
+    .photo span.hint { font-size: 10px; opacity: 0.6; letter-spacing: 0.06em; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: var(--black); border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; }
+    .nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 11px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--gray); font-size: 13px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links .nav-cta { background: var(--green); color: var(--black); padding: 7px 16px; border-radius: 3px; font-weight: 600; font-size: 13px; }
+    .nav-links .nav-cta:hover { opacity: 0.88; }
+
+    .page-hero { display: grid; grid-template-columns: 55fr 45fr; min-height: 420px; border-bottom: 1px solid var(--border); }
+    .hero-text { padding: 72px var(--pad) 64px calc((100vw - var(--max)) / 2 + var(--pad)); display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); }
+    .hero-text .h1 { margin-bottom: 24px; }
+    .hero-text .body-lg { max-width: 420px; }
+    .hero-meta { margin-top: 28px; display: flex; gap: 24px; flex-wrap: wrap; }
+    .hero-meta-item { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); }
+    .hero-meta-item span { color: var(--white); display: block; font-size: 20px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; letter-spacing: 0; }
+
+    section { border-bottom: 1px solid var(--border); }
+    .section-pad { padding: 72px 0; }
+
+    /* Gallery placeholder */
+    .gallery { background: var(--surface); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 40px; }
+    .gallery-cell { aspect-ratio: 4/3; }
+
+    /* Disciplines */
+    .disciplines-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+    .disc-tag { display: inline-block; padding: 8px 18px; border: 1px solid var(--border); border-radius: 3px; font-size: 13px; font-weight: 500; color: var(--gray); }
+
+    /* Sponsors */
+    .sponsors { background: var(--surface); }
+    .sponsor-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 40px; }
+    .sponsor-card { background: var(--surface); padding: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; min-height: 160px; }
+    .sponsor-name { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--white); }
+    .sponsor-card .body-sm { text-align: center; }
+
+    /* Join */
+    .join-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .join-grid .h2 { margin-bottom: 20px; }
+    .join-grid .body { margin-bottom: 14px; }
+    .join-points { margin-top: 24px; }
+    .join-point { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+    .join-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); margin-top: 8px; flex-shrink: 0; }
+
+    .cta-band { background: var(--surface); text-align: center; padding: 72px var(--pad); }
+    .cta-band .h2 { margin-bottom: 16px; }
+    .cta-band .body { margin-bottom: 32px; }
+
+    .footer { padding: 36px 0; border-top: 1px solid var(--border); }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-wordmark { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 8.5px; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; line-height: 1.35; }
+    .footer-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-nav a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-nav .airbnb { color: var(--gray-dim); }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-socials { display: flex; gap: 20px; }
+    .footer-socials a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-socials a:hover { color: var(--white); }
+    .footer-copy { font-size: 11px; color: var(--gray-dim); }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/Logo-3.svg" alt="PPTS" width="36" height="36" style="display:block; filter: brightness(0) invert(1);">
+      </a>
+      <ul class="nav-links">
+        <li><a href="coaching.html">Coaching</a></li>
+        <li><a href="bike-fit.html">Bike Fit</a></li>
+        <li><a href="physical-therapy.html">Physical Therapy</a></li>
+        <li><a href="lessons-clinics.html">Lessons &amp; Clinics</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="hero-text">
+      <p class="label">Est. 2011 &middot; Greater New England</p>
+      <h1 class="h1">Pedal Power<br>Team</h1>
+      <p class="body-lg">A cycling race team built on community and competition — road, gravel, cyclocross and mountain bike across greater New England.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">Founded<span>2011</span></div>
+        <div class="hero-meta-item">Based in<span>Boston</span></div>
+        <div class="hero-meta-item">Disciplines<span>4</span></div>
+        <!-- CONTENT PLACEHOLDER: confirm current team size / number of active members -->
+        <div class="hero-meta-item">Members<span>[#]</span></div>
+      </div>
+    </div>
+    <div class="photo">
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <rect x="3" y="5" width="18" height="14" rx="2"/>
+        <circle cx="12" cy="12" r="3.5"/>
+        <path d="M3 9h1.5M19.5 9H21"/>
+      </svg>
+      <span>Photo: Team racing</span>
+      <span class="hint">Race action — any discipline</span>
+    </div>
+  </section>
+
+  <!-- ABOUT THE TEAM -->
+  <section>
+    <div class="wrap section-pad">
+      <p class="label">About the team</p>
+      <h2 class="h2">Racing together<br>since 2011</h2>
+      <!-- CONTENT PLACEHOLDER: Sara to describe the team.
+           What is the spirit/culture of the team? What makes it a community?
+           What disciplines are most active right now? What level do people race at? -->
+      <p class="body" style="max-width: 640px; margin-top: 16px;">[Team background — founded 2011, greater New England, the culture and community of the team. What kind of riders are on it, what makes it more than just a kit.]</p>
+      <p class="body" style="max-width: 640px; margin-top: 14px;">[What disciplines the team is currently most active in, what events and races they typically do through the season.]</p>
+      <div class="disciplines-row">
+        <span class="disc-tag">Road</span>
+        <span class="disc-tag">Gravel</span>
+        <span class="disc-tag">Cyclocross</span>
+        <span class="disc-tag">Mountain Bike</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO GALLERY -->
+  <section class="gallery">
+    <div class="wrap section-pad">
+      <p class="label">On the road</p>
+      <h2 class="h2">Racing across<br>New England</h2>
+      <!-- CONTENT PLACEHOLDER: race photos from the team.
+           Target: 6 photos from different disciplines and events.
+           Goal: show range — road crits, gravel, CX pits, MTB trails -->
+      <div class="gallery-grid">
+        <div class="gallery-cell photo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg>
+          <span>Race photo 1</span>
+        </div>
+        <div class="gallery-cell photo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg>
+          <span>Race photo 2</span>
+        </div>
+        <div class="gallery-cell photo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg>
+          <span>Race photo 3</span>
+        </div>
+        <div class="gallery-cell photo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg>
+          <span>Race photo 4</span>
+        </div>
+        <div class="gallery-cell photo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg>
+          <span>Race photo 5</span>
+        </div>
+        <div class="gallery-cell photo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="12" cy="12" r="3.5"/></svg>
+          <span>Race photo 6</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPONSORS -->
+  <section class="sponsors">
+    <div class="wrap section-pad">
+      <p class="label">Partners &amp; Sponsors</p>
+      <h2 class="h2">Supported by</h2>
+      <div class="sponsor-grid">
+        <div class="sponsor-card">
+          <!-- CONTENT PLACEHOLDER: Eliel Cycling logo goes here -->
+          <div class="photo" style="width: 120px; height: 60px; border-radius: 3px;">
+            <span style="font-size: 10px;">Eliel logo</span>
+          </div>
+          <span class="sponsor-name">Eliel Cycling</span>
+          <p class="body-sm">Kit sponsor</p>
+        </div>
+        <div class="sponsor-card">
+          <!-- CONTENT PLACEHOLDER: Ride Headquarters logo goes here -->
+          <div class="photo" style="width: 120px; height: 60px; border-radius: 3px;">
+            <span style="font-size: 10px;">Ride HQ logo</span>
+          </div>
+          <span class="sponsor-name">Ride Headquarters</span>
+          <p class="body-sm">[Sponsor description — from Sara]</p>
+        </div>
+        <div class="sponsor-card">
+          <!-- CONTENT PLACEHOLDER: Compass logo goes here — is this Compass Cycling? -->
+          <div class="photo" style="width: 120px; height: 60px; border-radius: 3px;">
+            <span style="font-size: 10px;">Compass logo</span>
+          </div>
+          <span class="sponsor-name">Compass</span>
+          <p class="body-sm">[Sponsor description — from Sara]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN THE TEAM -->
+  <section>
+    <div class="wrap section-pad">
+      <div class="join-grid">
+        <div>
+          <p class="label">Join the team</p>
+          <h2 class="h2">Race with us</h2>
+          <!-- CONTENT PLACEHOLDER: Sara to fill in:
+               - Who is the team looking for? Ability requirements?
+               - What disciplines are most active and recruiting?
+               - What does membership involve? Dues? Kit purchase? Commitments?
+               - How do interested riders apply or get in touch? -->
+          <p class="body">[Who the team is looking for — experience level, disciplines, geography (greater New England). What makes a good candidate.]</p>
+          <p class="body" style="margin-top:14px;">[What team membership involves — kit, dues if any, what events you're expected to race, what you get from being on the team.]</p>
+          <div class="join-points">
+            <div class="join-point"><span class="join-dot"></span><span class="body-sm">[Membership detail 1 — from Sara]</span></div>
+            <div class="join-point"><span class="join-dot"></span><span class="body-sm">[Membership detail 2 — from Sara]</span></div>
+            <div class="join-point"><span class="join-dot"></span><span class="body-sm">[Membership detail 3 — from Sara]</span></div>
+            <div class="join-point"><span class="join-dot"></span><span class="body-sm">[Membership detail 4 — from Sara]</span></div>
+          </div>
+          <a href="contact.html" class="btn btn-primary" style="margin-top: 28px;">Get in touch</a>
+        </div>
+        <div class="photo" style="aspect-ratio: 4/3;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="9" cy="8" r="3"/>
+            <path d="M3 20c0-3.3 2.7-6 6-6"/>
+            <circle cx="17" cy="8" r="3"/>
+            <path d="M21 20c0-3.3-2.7-6-6-6"/>
+          </svg>
+          <span>Photo: Team members</span>
+          <span class="hint">Kit photo or team group shot</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2 class="h2">Interested in racing with us?</h2>
+    <p class="body">Reach out through the contact form and Sara will get back to you.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Sara</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo">
+          <img src="images/Logo-3.svg" alt="PPTS" width="28" height="28" style="display:block; filter: brightness(0) invert(1);">
+          <span class="footer-wordmark">Pedal Power<br>Training Solutions</span>
+        </a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/pedalpowertraining">Instagram</a>
+          <a href="https://www.facebook.com/pedalpowertrainingsolutions">Facebook</a>
+          <a href="https://www.strava.com/clubs/pedalpowertraining">Strava</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-nav">
+          <a href="coaching.html">Coaching</a>
+          <a href="bike-fit.html">Bike Fit</a>
+          <a href="physical-therapy.html">Physical Therapy</a>
+          <a href="lessons-clinics.html">Lessons &amp; Clinics</a>
+          <a href="team.html">Team</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="https://www.airbnb.com/rooms/48905072" class="airbnb">Burke View AirBnb &nearr;</a>
+        </nav>
+        <span class="footer-copy">contact@pedalpowertraining.com &nbsp;&middot;&nbsp; &copy; 2026 Pedal Power Training Solutions</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

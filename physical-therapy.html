@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Physical Therapy — Pedal Power Training Solutions</title>
+  <meta name="description" content="Sports rehabilitation with Sara Bresnick — licensed physical therapist with 20+ years of experience treating active people and athletes in Boston.">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --black: #0A0405; --surface: #111012; --card: #1C1C1E; --border: #222022;
+      --gray: #6B7A80; --gray-dim: #3A3A3C; --white: #FFFFFF;
+      --green: #26EA88; --pink: #F06EB0; --max: 1160px; --pad: 48px;
+    }
+    body { background: var(--black); color: var(--white); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(56px, 7vw, 88px); line-height: 0.94; text-transform: uppercase; letter-spacing: -0.01em; color: var(--white); }
+    .h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4vw, 48px); line-height: 1.0; text-transform: uppercase; letter-spacing: 0.01em; color: var(--white); }
+    .h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: var(--white); }
+    .body-lg { font-size: 17px; color: var(--gray); line-height: 1.7; }
+    .body    { font-size: 15px; color: var(--gray); line-height: 1.7; }
+    .body-sm { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+    .btn { display: inline-block; padding: 13px 26px; border-radius: 3px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--green); color: var(--black); }
+    .btn-ghost   { background: transparent; color: var(--white); border: 1px solid var(--border); }
+    .photo { background: var(--surface); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--gray-dim); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+    .photo svg { opacity: 0.35; }
+    .photo span.hint { font-size: 10px; opacity: 0.6; letter-spacing: 0.06em; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: var(--black); border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; }
+    .nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 11px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--gray); font-size: 13px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links .nav-cta { background: var(--green); color: var(--black); padding: 7px 16px; border-radius: 3px; font-weight: 600; font-size: 13px; }
+    .nav-links .nav-cta:hover { opacity: 0.88; }
+
+    .page-hero { padding: 72px 0 64px; border-bottom: 1px solid var(--border); }
+    .page-hero .h1 { margin-bottom: 24px; max-width: 700px; }
+    .page-hero .body-lg { max-width: 560px; }
+    section { border-bottom: 1px solid var(--border); }
+    .section-pad { padding: 72px 0; }
+
+    .rehab-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: center; }
+    .rehab-grid .h2 { margin-bottom: 20px; }
+    .rehab-grid .body { margin-bottom: 14px; }
+
+    .advantage { background: var(--surface); }
+    .advantage-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 40px; }
+    .advantage-card { background: var(--surface); padding: 32px 28px; }
+    .advantage-card .h3 { color: var(--green); margin-bottom: 10px; }
+
+    .conditions { }
+    .conditions-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 40px; }
+    .condition-item { background: var(--black); padding: 20px 24px; display: flex; align-items: flex-start; gap: 12px; }
+    .cond-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--green); margin-top: 8px; flex-shrink: 0; }
+
+    .cta-band { background: var(--surface); text-align: center; padding: 72px var(--pad); }
+    .cta-band .h2 { margin-bottom: 16px; }
+    .cta-band .body { margin-bottom: 32px; }
+
+    .footer { padding: 36px 0; border-top: 1px solid var(--border); }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-wordmark { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 8.5px; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; line-height: 1.35; }
+    .footer-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-nav a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-nav .airbnb { color: var(--gray-dim); }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-socials { display: flex; gap: 20px; }
+    .footer-socials a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-socials a:hover { color: var(--white); }
+    .footer-copy { font-size: 11px; color: var(--gray-dim); }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/Logo-3.svg" alt="PPTS" width="36" height="36" style="display:block; filter: brightness(0) invert(1);">
+      </a>
+      <ul class="nav-links">
+        <li><a href="coaching.html">Coaching</a></li>
+        <li><a href="bike-fit.html">Bike Fit</a></li>
+        <li><a href="physical-therapy.html" class="active">Physical Therapy</a></li>
+        <li><a href="lessons-clinics.html">Lessons &amp; Clinics</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap">
+      <p class="label">Physical Therapy</p>
+      <h1 class="h1">Get back to<br>doing what<br>you love.</h1>
+      <p class="body-lg">Sara Bresnick is a licensed physical therapist with a Masters degree in PT and 20+ years of experience working with active people and athletes. She knows what it takes to get back — because she's been there.</p>
+    </div>
+  </section>
+
+  <!-- SPORTS REHAB -->
+  <section>
+    <div class="wrap section-pad">
+      <div class="rehab-grid">
+        <div class="photo" style="aspect-ratio: 3/4;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <circle cx="12" cy="8" r="4"/>
+            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          <span>Photo: Sara</span>
+          <span class="hint">PT or clinical setting</span>
+        </div>
+        <div>
+          <p class="label">Sports Rehabilitation</p>
+          <h2 class="h2">Rehab that respects<br>what you're coming back to</h2>
+          <!-- CONTENT PLACEHOLDER: Sara to describe her PT approach.
+               Key themes: 20+ years experience, sports-injury focus, working with active people who want to return to sport.
+               What conditions she commonly treats. Her philosophy around recovery and return-to-sport.
+               Does she do one-on-one sessions? Where? Boston? Vermont? -->
+          <p class="body">[Sara's PT approach — experience, sports injury focus, and how she thinks about recovery differently for athletes than a typical clinical setting would.]</p>
+          <p class="body" style="margin-top:14px;">[What makes sports rehabilitation different from general PT — the goal isn't just pain-free daily function, it's returning to full athletic capacity.]</p>
+          <p class="body" style="margin-top:14px;">[Where she practices and how to get an appointment.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE ADVANTAGE -->
+  <section class="advantage">
+    <div class="wrap section-pad">
+      <p class="label">The advantage</p>
+      <h2 class="h2">Your PT, coach &amp; fitter<br>in one person</h2>
+      <p class="body" style="max-width: 600px; margin-top: 16px;">Having one person who understands your body as a physical therapist, knows your training load as your coach, and can see how your position affects your injury as a bike fitter — that's rare. And it matters.</p>
+      <div class="advantage-grid">
+        <div class="advantage-card">
+          <p class="h3">No gaps in communication</p>
+          <!-- CONTENT PLACEHOLDER: the problem with separate PT / coach / fitter who don't talk to each other -->
+          <p class="body-sm">[When your PT, coach and fitter are different people, information falls through the cracks. Sara holds the whole picture.]</p>
+        </div>
+        <div class="advantage-card">
+          <p class="h3">Rehab that fits your training</p>
+          <!-- CONTENT PLACEHOLDER: rehab that accounts for training load, race calendar, what you can and can't do -->
+          <p class="body-sm">[Rehabilitation that accounts for your training calendar, not just your clinical progress. What you can keep doing while recovering matters.]</p>
+        </div>
+        <div class="advantage-card">
+          <p class="h3">Return to sport, not just rest</p>
+          <!-- CONTENT PLACEHOLDER: goal is full return, not just symptom reduction -->
+          <p class="body-sm">[The goal is always full return to sport — not just reducing pain, but getting you back to doing what you were doing before, and often better.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONDITIONS -->
+  <section class="conditions">
+    <div class="wrap section-pad">
+      <p class="label">Common presentations</p>
+      <h2 class="h2">What Sara commonly treats</h2>
+      <!-- CONTENT PLACEHOLDER: Sara to confirm and expand this list. Add or remove as appropriate. -->
+      <div class="conditions-list">
+        <div class="condition-item">
+          <span class="cond-dot"></span>
+          <span class="body-sm">Knee pain (IT band syndrome, patellofemoral, patellar tendinopathy)</span>
+        </div>
+        <div class="condition-item">
+          <span class="cond-dot"></span>
+          <span class="body-sm">Lower back and hip pain in cyclists</span>
+        </div>
+        <div class="condition-item">
+          <span class="cond-dot"></span>
+          <span class="body-sm">Neck and shoulder pain from riding position</span>
+        </div>
+        <div class="condition-item">
+          <span class="cond-dot"></span>
+          <span class="body-sm">Foot and ankle issues, including plantar fasciitis</span>
+        </div>
+        <div class="condition-item">
+          <span class="cond-dot"></span>
+          <span class="body-sm">Overuse injuries from cycling, running and triathlon</span>
+        </div>
+        <div class="condition-item">
+          <span class="cond-dot"></span>
+          <span class="body-sm">Post-surgical rehabilitation and return to sport</span>
+        </div>
+        <div class="condition-item">
+          <span class="cond-dot"></span>
+          <span class="body-sm">[Additional condition — from Sara]</span>
+        </div>
+        <div class="condition-item">
+          <span class="cond-dot"></span>
+          <span class="body-sm">[Additional condition — from Sara]</span>
+        </div>
+      </div>
+      <!-- CONTENT PLACEHOLDER: note that this list is not exhaustive and Sara should be asked if she treats other things -->
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2 class="h2">Ready to start recovering?</h2>
+    <p class="body">Get in touch to discuss your situation and schedule an appointment.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Sara</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo">
+          <img src="images/Logo-3.svg" alt="PPTS" width="28" height="28" style="display:block; filter: brightness(0) invert(1);">
+          <span class="footer-wordmark">Pedal Power<br>Training Solutions</span>
+        </a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/pedalpowertraining">Instagram</a>
+          <a href="https://www.facebook.com/pedalpowertrainingsolutions">Facebook</a>
+          <a href="https://www.strava.com/clubs/pedalpowertraining">Strava</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-nav">
+          <a href="coaching.html">Coaching</a>
+          <a href="bike-fit.html">Bike Fit</a>
+          <a href="physical-therapy.html">Physical Therapy</a>
+          <a href="lessons-clinics.html">Lessons &amp; Clinics</a>
+          <a href="team.html">Team</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="https://www.airbnb.com/rooms/48905072" class="airbnb">Burke View AirBnb &nearr;</a>
+        </nav>
+        <span class="footer-copy">contact@pedalpowertraining.com &nbsp;&middot;&nbsp; &copy; 2026 Pedal Power Training Solutions</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

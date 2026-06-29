@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Pedal Power Training Solutions</title>
+  <meta name="description" content="Get in touch with Sara Bresnick at Pedal Power Training Solutions. Coaching, bike fit, physical therapy, orthotics, lessons, camps or team inquiries.">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --black: #0A0405; --surface: #111012; --card: #1C1C1E; --border: #222022;
+      --gray: #6B7A80; --gray-dim: #3A3A3C; --white: #FFFFFF;
+      --green: #26EA88; --pink: #F06EB0; --max: 1160px; --pad: 48px;
+    }
+    body { background: var(--black); color: var(--white); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(56px, 7vw, 88px); line-height: 0.94; text-transform: uppercase; letter-spacing: -0.01em; color: var(--white); }
+    .h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4vw, 48px); line-height: 1.0; text-transform: uppercase; letter-spacing: 0.01em; color: var(--white); }
+    .body-lg { font-size: 17px; color: var(--gray); line-height: 1.7; }
+    .body    { font-size: 15px; color: var(--gray); line-height: 1.7; }
+    .body-sm { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+    .btn { display: inline-block; padding: 13px 26px; border-radius: 3px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: opacity 0.15s; border: none; }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--green); color: var(--black); cursor: pointer; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: var(--black); border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; }
+    .nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 11px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--gray); font-size: 13px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links .nav-cta { background: var(--green); color: var(--black); padding: 7px 16px; border-radius: 3px; font-weight: 600; font-size: 13px; }
+    .nav-links .nav-cta:hover { opacity: 0.88; }
+
+    /* Main layout */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      min-height: calc(100vh - 64px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* Left panel — info */
+    .contact-info {
+      padding: 72px var(--pad) 72px calc((100vw - var(--max)) / 2 + var(--pad));
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .contact-info .h1 { margin-bottom: 16px; }
+    .contact-info .body-lg { }
+
+    .info-block { }
+    .info-block .label { margin-bottom: 8px; }
+
+    .info-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--white); font-size: 15px; font-weight: 500;
+      transition: color 0.15s;
+    }
+    .info-link:hover { color: var(--green); }
+
+    .location-note { font-size: 14px; color: var(--gray); line-height: 1.6; }
+
+    .social-links { display: flex; flex-direction: column; gap: 10px; }
+    .social-link { font-size: 14px; color: var(--gray); transition: color 0.15s; }
+    .social-link:hover { color: var(--white); }
+
+    /* Right panel — form */
+    .contact-form-panel {
+      padding: 72px 56px 72px var(--pad);
+      background: var(--surface);
+    }
+
+    .form-intro { margin-bottom: 36px; }
+    .form-intro .h2 { margin-bottom: 12px; }
+
+    .form { display: flex; flex-direction: column; gap: 20px; }
+
+    .field { display: flex; flex-direction: column; gap: 7px; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    label {
+      font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--gray);
+    }
+
+    input, select, textarea {
+      background: var(--black);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      padding: 12px 14px;
+      width: 100%;
+      transition: border-color 0.15s;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--green);
+    }
+    input::placeholder, textarea::placeholder { color: var(--gray-dim); }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B7A80' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+    select option { background: var(--black); }
+
+    textarea { resize: vertical; min-height: 140px; line-height: 1.6; }
+
+    .form-submit { margin-top: 8px; }
+    .form-submit .btn-primary { width: 100%; text-align: center; font-size: 15px; padding: 15px; }
+
+    .form-note {
+      font-size: 12px; color: var(--gray-dim); text-align: center; margin-top: 10px;
+    }
+
+    /* Footer */
+    .footer { padding: 36px 0; border-top: 1px solid var(--border); }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-wordmark { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 8.5px; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; line-height: 1.35; }
+    .footer-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-nav a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-nav .airbnb { color: var(--gray-dim); }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-socials { display: flex; gap: 20px; }
+    .footer-socials a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-socials a:hover { color: var(--white); }
+    .footer-copy { font-size: 11px; color: var(--gray-dim); }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/Logo-3.svg" alt="PPTS" width="36" height="36" style="display:block; filter: brightness(0) invert(1);">
+      </a>
+      <ul class="nav-links">
+        <li><a href="coaching.html">Coaching</a></li>
+        <li><a href="bike-fit.html">Bike Fit</a></li>
+        <li><a href="physical-therapy.html">Physical Therapy</a></li>
+        <li><a href="lessons-clinics.html">Lessons &amp; Clinics</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="nav-cta active">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="contact-layout">
+
+    <!-- LEFT: INFO PANEL -->
+    <div class="contact-info">
+      <div>
+        <p class="label">Contact</p>
+        <h1 class="h1">Let's talk.</h1>
+        <p class="body-lg" style="margin-top: 16px;">Use the form or reach out directly. Sara will get back to you within [X] business days.</p>
+      </div>
+
+      <div class="info-block">
+        <p class="label">Email</p>
+        <a href="mailto:contact@pedalpowertraining.com" class="info-link">
+          contact@pedalpowertraining.com
+        </a>
+      </div>
+
+      <div class="info-block">
+        <p class="label">Location</p>
+        <p class="location-note">
+          Boston, MA — in-person coaching, bike fitting and physical therapy available.<br><br>
+          East Burke, VT — Vermont's Northeast Kingdom. Lessons, clinics and custom camps at one of the best cycling destinations in the world.
+        </p>
+      </div>
+
+      <div class="info-block">
+        <p class="label">Follow along</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/pedalpowertraining" class="social-link">Instagram &nbsp;@pedalpowertraining &nearr;</a>
+          <a href="https://www.facebook.com/pedalpowertrainingsolutions" class="social-link">Facebook &nearr;</a>
+          <a href="https://www.strava.com/clubs/pedalpowertraining" class="social-link">Strava Club &nearr;</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: FORM PANEL -->
+    <div class="contact-form-panel">
+      <div class="form-intro">
+        <h2 class="h2">Send a message</h2>
+        <p class="body" style="margin-top: 10px;">Tell Sara what you're looking for and she'll be in touch.</p>
+      </div>
+
+      <!-- NOTE: This form needs a backend handler or third-party service (Formspree, Netlify Forms, etc.)
+           before going live. Action and method to be wired up at that time. -->
+      <form class="form" action="#" method="POST">
+        <div class="field-row">
+          <div class="field">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" placeholder="Sara" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" placeholder="Bresnick" autocomplete="family-name" required>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+        </div>
+
+        <div class="field">
+          <label for="subject">What are you reaching out about?</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Select a topic</option>
+            <option value="coaching">Coaching</option>
+            <option value="bike-fit">Bike Fit</option>
+            <option value="physical-therapy">Physical Therapy</option>
+            <option value="orthotics">Custom Orthotics</option>
+            <option value="lessons-clinics">Lessons &amp; Clinics</option>
+            <option value="camps">Custom Camps &amp; Touring</option>
+            <option value="team">Pedal Power Team</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell Sara a bit about what you're looking for…" required></textarea>
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn btn-primary">Send message</button>
+          <p class="form-note">No spam. Sara reads every message herself.</p>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo">
+          <img src="images/Logo-3.svg" alt="PPTS" width="28" height="28" style="display:block; filter: brightness(0) invert(1);">
+          <span class="footer-wordmark">Pedal Power<br>Training Solutions</span>
+        </a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/pedalpowertraining">Instagram</a>
+          <a href="https://www.facebook.com/pedalpowertrainingsolutions">Facebook</a>
+          <a href="https://www.strava.com/clubs/pedalpowertraining">Strava</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-nav">
+          <a href="coaching.html">Coaching</a>
+          <a href="bike-fit.html">Bike Fit</a>
+          <a href="physical-therapy.html">Physical Therapy</a>
+          <a href="lessons-clinics.html">Lessons &amp; Clinics</a>
+          <a href="team.html">Team</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="https://www.airbnb.com/rooms/48905072" class="airbnb">Burke View AirBnb &nearr;</a>
+        </nav>
+        <span class="footer-copy">contact@pedalpowertraining.com &nbsp;&middot;&nbsp; &copy; 2026 Pedal Power Training Solutions</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

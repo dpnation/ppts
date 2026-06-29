@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Sara — Pedal Power Training Solutions</title>
+  <meta name="description" content="Sara Bresnick — former professional cyclist, USA Cycling certified coach and Level 1 Race Promoter, licensed physical therapist. 20+ years working with athletes.">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --black: #0A0405; --surface: #111012; --card: #1C1C1E; --border: #222022;
+      --gray: #6B7A80; --gray-dim: #3A3A3C; --white: #FFFFFF;
+      --green: #26EA88; --pink: #F06EB0; --max: 1160px; --pad: 48px;
+    }
+    body { background: var(--black); color: var(--white); font-family: 'Inter', system-ui, sans-serif; font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); }
+    .label { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 12px; }
+    .h1 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(56px, 7vw, 88px); line-height: 0.94; text-transform: uppercase; letter-spacing: -0.01em; color: var(--white); }
+    .h2 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: clamp(36px, 4vw, 48px); line-height: 1.0; text-transform: uppercase; letter-spacing: 0.01em; color: var(--white); }
+    .h3 { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: var(--white); }
+    .body-lg { font-size: 17px; color: var(--gray); line-height: 1.7; }
+    .body    { font-size: 15px; color: var(--gray); line-height: 1.7; }
+    .body-sm { font-size: 13.5px; color: var(--gray); line-height: 1.65; }
+    .btn { display: inline-block; padding: 13px 26px; border-radius: 3px; font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.02em; cursor: pointer; transition: opacity 0.15s; }
+    .btn:hover { opacity: 0.88; }
+    .btn-primary { background: var(--green); color: var(--black); }
+    .btn-ghost   { background: transparent; color: var(--white); border: 1px solid var(--border); }
+    .photo { background: var(--surface); border: 1px solid var(--border); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; color: var(--gray-dim); font-size: 11px; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; }
+    .photo svg { opacity: 0.35; }
+    .photo span.hint { font-size: 10px; opacity: 0.6; letter-spacing: 0.06em; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: var(--black); border-bottom: 1px solid var(--border); height: 64px; display: flex; align-items: center; }
+    .nav-inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--pad); width: 100%; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { display: flex; align-items: center; gap: 11px; }
+    .nav-links { display: flex; align-items: center; gap: 28px; list-style: none; }
+    .nav-links a { color: var(--gray); font-size: 13px; font-weight: 500; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links .nav-cta { background: var(--green); color: var(--black); padding: 7px 16px; border-radius: 3px; font-weight: 600; font-size: 13px; }
+    .nav-links .nav-cta:hover { opacity: 0.88; }
+
+    .page-hero { display: grid; grid-template-columns: 45fr 55fr; min-height: 480px; border-bottom: 1px solid var(--border); }
+    .hero-photo { }
+    .hero-text { padding: 72px var(--pad) 64px 56px; display: flex; flex-direction: column; justify-content: center; }
+    .hero-text .h1 { margin-bottom: 24px; }
+    .hero-text .body-lg { max-width: 520px; }
+
+    section { border-bottom: 1px solid var(--border); }
+    .section-pad { padding: 72px 0; }
+
+    .bio-grid { display: grid; grid-template-columns: 7fr 5fr; gap: 56px; align-items: start; }
+    .bio-grid .h2 { margin-bottom: 20px; }
+    .bio-grid .body { margin-bottom: 14px; }
+
+    .credentials { background: var(--surface); }
+    .cred-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; margin-top: 40px; }
+    .cred-card { background: var(--surface); padding: 28px 32px; }
+    .cred-card .h3 { font-size: 19px; color: var(--green); margin-bottom: 8px; }
+
+    .racing { }
+    .racing-grid { display: grid; grid-template-columns: 5fr 7fr; gap: 56px; align-items: start; }
+    .racing-grid .h2 { margin-bottom: 20px; }
+
+    /* Timeline placeholder */
+    .timeline { margin-top: 28px; }
+    .timeline-item { display: flex; gap: 20px; padding: 16px 0; border-top: 1px solid var(--border); }
+    .tl-year { font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 22px; color: var(--green); flex-shrink: 0; width: 60px; }
+
+    .promotion { background: var(--surface); }
+    .promotion-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    .promotion-inner .h2 { margin-bottom: 20px; }
+    .promotion-inner .body { margin-bottom: 14px; }
+
+    .philosophy { }
+    .philosophy-quote {
+      font-family: 'Barlow Condensed', sans-serif; font-weight: 600;
+      font-size: clamp(24px, 3vw, 34px); line-height: 1.25;
+      color: var(--white); border-left: 3px solid var(--green);
+      padding-left: 28px; margin: 32px 0; max-width: 680px;
+    }
+
+    .cta-band { background: var(--surface); text-align: center; padding: 72px var(--pad); }
+    .cta-band .h2 { margin-bottom: 16px; }
+    .cta-band .body { margin-bottom: 32px; }
+
+    .footer { padding: 36px 0; border-top: 1px solid var(--border); }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-wordmark { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 8.5px; letter-spacing: 0.12em; color: var(--white); text-transform: uppercase; line-height: 1.35; }
+    .footer-nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    .footer-nav a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-nav a:hover { color: var(--white); }
+    .footer-nav .airbnb { color: var(--gray-dim); }
+    .footer-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--border); margin-bottom: 20px; }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; }
+    .footer-socials { display: flex; gap: 20px; }
+    .footer-socials a { font-size: 13px; color: var(--gray); transition: color 0.15s; }
+    .footer-socials a:hover { color: var(--white); }
+    .footer-copy { font-size: 11px; color: var(--gray-dim); }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <img src="images/Logo-3.svg" alt="PPTS" width="36" height="36" style="display:block; filter: brightness(0) invert(1);">
+      </a>
+      <ul class="nav-links">
+        <li><a href="coaching.html">Coaching</a></li>
+        <li><a href="bike-fit.html">Bike Fit</a></li>
+        <li><a href="physical-therapy.html">Physical Therapy</a></li>
+        <li><a href="lessons-clinics.html">Lessons &amp; Clinics</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="hero-photo photo">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+        <circle cx="12" cy="8" r="4"/>
+        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+      </svg>
+      <span>Photo: Sara</span>
+      <span class="hint">On the bike or coaching — best available</span>
+    </div>
+    <div class="hero-text">
+      <p class="label">About Sara</p>
+      <h1 class="h1">Pro cyclist.<br>Physical<br>therapist.<br>Coach.</h1>
+      <p class="body-lg" style="margin-top: 24px;">Sara Bresnick has been racing bikes since 2002 and treating athletes as a licensed physical therapist for over 20 years. There isn't anyone quite like her.</p>
+    </div>
+  </section>
+
+  <!-- BIO -->
+  <section>
+    <div class="wrap section-pad">
+      <div class="bio-grid">
+        <div>
+          <p class="label">Background</p>
+          <h2 class="h2">The whole story</h2>
+          <!-- CONTENT PLACEHOLDER: Sara to provide a full narrative bio.
+               Target: 4–5 paragraphs covering:
+               - How she got into cycling / racing starting 2002
+               - Her pro racing career (road, MTB, CX)
+               - Transition to coaching and PT
+               - What PPTS is and why she built it
+               - Where she is now (Boston + Vermont)
+               This is the most personal section of the site — should feel like Sara's voice. -->
+          <p class="body">[Opening paragraph — how Sara got into cycling and started racing in 2002. What the early years looked like.]</p>
+          <p class="body" style="margin-top:14px;">[Her professional racing career — road, mountain bike and cyclocross. National/international level. Highlights Sara wants to include.]</p>
+          <p class="body" style="margin-top:14px;">[Transition — from racing to coaching and physical therapy. When she got her PT degree, why, and how that changed how she works with athletes.]</p>
+          <p class="body" style="margin-top:14px;">[What PPTS is and why she built it the way she did — whole-athlete approach, no tiered packages, why that matters to her.]</p>
+          <p class="body" style="margin-top:14px;">[Where she is now — Boston-based, also in Vermont's Northeast Kingdom (East Burke). Why Vermont.]</p>
+        </div>
+        <div>
+          <div class="photo" style="aspect-ratio: 3/4;">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+              <rect x="3" y="5" width="18" height="14" rx="2"/>
+              <circle cx="12" cy="12" r="3.5"/>
+            </svg>
+            <span>Photo: Sara racing</span>
+            <span class="hint">Pro racing era — road or CX preferred</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="credentials">
+    <div class="wrap section-pad">
+      <p class="label">Credentials</p>
+      <h2 class="h2">Qualifications</h2>
+      <div class="cred-grid">
+        <div class="cred-card">
+          <p class="h3">USA Cycling Coach</p>
+          <p class="body-sm">Certified USA Cycling coach. Works with athletes in road, gravel, cyclocross, mountain bike and triathlon.</p>
+        </div>
+        <div class="cred-card">
+          <p class="h3">Licensed Physical Therapist</p>
+          <p class="body-sm">Masters degree in Physical Therapy. Licensed PT with 20+ years of experience treating active people and athletes.</p>
+        </div>
+        <div class="cred-card">
+          <p class="h3">Biomechanics &amp; Bike Fit</p>
+          <p class="body-sm">Advanced certifications in biomechanics and bicycle fitting. PT-informed approach to position and movement analysis.</p>
+        </div>
+        <div class="cred-card">
+          <p class="h3">Custom Orthotics</p>
+          <p class="body-sm">Advanced certification in orthotics. Custom orthotics for cycling, running, walking and court sports.</p>
+        </div>
+        <div class="cred-card" style="grid-column: 1 / -1;">
+          <p class="h3">USA Cycling Level 1 Race Director &amp; Promoter</p>
+          <p class="body-sm">Highest USAC certification for race directors and promoters. Sara has organized and directed events at the local and regional level throughout her career.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RACING HISTORY -->
+  <section class="racing">
+    <div class="wrap section-pad">
+      <div class="racing-grid">
+        <div class="photo" style="aspect-ratio: 4/3;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <circle cx="12" cy="12" r="3.5"/>
+          </svg>
+          <span>Photo: Racing action</span>
+          <span class="hint">Road, MTB or CX — era doesn't matter</span>
+        </div>
+        <div>
+          <p class="label">Racing history</p>
+          <h2 class="h2">On the road<br>since 2002</h2>
+          <!-- CONTENT PLACEHOLDER: Sara to provide racing highlights she wants to feature.
+               Could be a brief timeline or a short paragraph — whatever feels right for her.
+               Road, MTB and CX. National/international highlights.
+               Year she started, notable races or achievements she's proud of.
+               This doesn't need to be exhaustive — just enough to establish the pro background. -->
+          <div class="timeline">
+            <div class="timeline-item">
+              <span class="tl-year">2002</span>
+              <span class="body-sm">[Sara started racing — context and early career. What discipline, what level.]</span>
+            </div>
+            <div class="timeline-item">
+              <span class="tl-year">[Year]</span>
+              <span class="body-sm">[Racing highlight — from Sara. National or international result, notable race, discipline crossover, etc.]</span>
+            </div>
+            <div class="timeline-item">
+              <span class="tl-year">[Year]</span>
+              <span class="body-sm">[Racing highlight — from Sara.]</span>
+            </div>
+            <div class="timeline-item">
+              <span class="tl-year">[Year]</span>
+              <span class="body-sm">[Racing highlight or career transition — from Sara. When she started PPTS, when she got her PT degree, etc.]</span>
+            </div>
+            <div class="timeline-item">
+              <span class="tl-year">2011</span>
+              <span class="body-sm">Founded the Pedal Power Team — road, gravel, cyclocross and mountain bike racing across greater New England.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RACE PROMOTION -->
+  <section class="promotion">
+    <div class="wrap section-pad">
+      <div class="promotion-inner">
+        <div>
+          <p class="label">Race Promotion</p>
+          <h2 class="h2">Behind the<br>start line too</h2>
+          <!-- CONTENT PLACEHOLDER: Sara's race promotion background.
+               USA Cycling Level 1 Race Director/Promoter. What events has she organized?
+               Does she still actively promote? Any events that are "hers" she's known for? -->
+          <p class="body">[Sara's background as a race promoter — USA Cycling Level 1 certification, what events she's organized over the years.]</p>
+          <p class="body" style="margin-top:14px;">[Whether she's still active as a promoter, any current or recent events she's involved in.]</p>
+        </div>
+        <div class="photo" style="aspect-ratio: 4/3;">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+            <rect x="3" y="5" width="18" height="14" rx="2"/>
+            <circle cx="12" cy="12" r="3.5"/>
+          </svg>
+          <span>Photo: Race promotion</span>
+          <span class="hint">Finish line, start line, or event operations</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="philosophy">
+    <div class="wrap section-pad">
+      <p class="label">Philosophy</p>
+      <h2 class="h2">How Sara thinks<br>about this work</h2>
+      <!-- CONTENT PLACEHOLDER: Sara's philosophy in her own voice.
+           This is the place for a more personal statement about why she does what she does,
+           what she believes about coaching / PT / fitting, and what kind of athlete she most wants to work with.
+           Could include a pull quote from Sara. -->
+      <div class="philosophy-quote">
+        "[Pull quote from Sara — her voice, not marketing copy. What she believes about working with athletes.]"
+      </div>
+      <p class="body" style="max-width: 640px;">[Expanded philosophy — 2–3 paragraphs from Sara about what she believes, what she's learned, what she tries to bring to every athlete she works with. This should read like her, not a press release.]</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <h2 class="h2">Work with Sara</h2>
+    <p class="body">Coaching, bike fit, PT, or all three. Get in touch to start the conversation.</p>
+    <a href="contact.html" class="btn btn-primary">Contact Sara</a>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-top">
+        <a href="index.html" class="footer-logo">
+          <img src="images/Logo-3.svg" alt="PPTS" width="28" height="28" style="display:block; filter: brightness(0) invert(1);">
+          <span class="footer-wordmark">Pedal Power<br>Training Solutions</span>
+        </a>
+        <div class="footer-socials">
+          <a href="https://www.instagram.com/pedalpowertraining">Instagram</a>
+          <a href="https://www.facebook.com/pedalpowertrainingsolutions">Facebook</a>
+          <a href="https://www.strava.com/clubs/pedalpowertraining">Strava</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <nav class="footer-nav">
+          <a href="coaching.html">Coaching</a>
+          <a href="bike-fit.html">Bike Fit</a>
+          <a href="physical-therapy.html">Physical Therapy</a>
+          <a href="lessons-clinics.html">Lessons &amp; Clinics</a>
+          <a href="team.html">Team</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="https://www.airbnb.com/rooms/48905072" class="airbnb">Burke View AirBnb &nearr;</a>
+        </nav>
+        <span class="footer-copy">contact@pedalpowertraining.com &nbsp;&middot;&nbsp; &copy; 2026 Pedal Power Training Solutions</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
